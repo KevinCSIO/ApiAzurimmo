@@ -14,6 +14,9 @@ public class Appartement {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name="numero")
     private int numero;
 
     @Column(name="surface")
@@ -64,4 +67,5 @@ public class Appartement {
     public void setBatiment(Batiment batiment) {
         this.batiment = batiment;
     }
+
 }
