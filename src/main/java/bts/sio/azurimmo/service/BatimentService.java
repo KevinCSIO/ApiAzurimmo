@@ -14,6 +14,13 @@ public class BatimentService {
     @Autowired
     private BatimentRepository batimentRepository;
 
+    public Batiment saveBatiment(Batiment batiment) {
+        if (batiment.getId() == 0) {
+            batiment.setId(null);
+        }
+        return batimentRepository.save(batiment);
+    }
+
     public List<Batiment> getAllBatiments() {
         return batimentRepository.findAll();
     }
