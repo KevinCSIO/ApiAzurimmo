@@ -27,8 +27,10 @@ public class AppartementService {
     }
 
     public Appartement saveAppartement(Appartement appartement) {
-        Appartement savedAppartement = appartementRepository.save(appartement);
-        return savedAppartement;
+        if (appartement.getId() == 0) {
+            appartement.setId(null);
+        }
+        return appartementRepository.save(appartement);
     }
     public List<Appartement> findByVille(String ville) {
         return appartementRepository.findByBatiment_Ville(ville);
