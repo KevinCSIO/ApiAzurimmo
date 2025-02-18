@@ -23,17 +23,17 @@ public class Appartement {
     private float surface;
 
     @Column(name="nbrePieces")
-    private int nbrePieces;
+    private Long nbrePieces;
 
     @Column(name="description")
     private String description;
 
-    public int getNumero() {
-        return numero;
+    public Batiment getBatiment() {
+        return batiment;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setBatiment(Batiment batiment) {
+        this.batiment = batiment;
     }
 
     public Long getId() {
@@ -44,6 +44,14 @@ public class Appartement {
         this.id = id;
     }
 
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
     public float getSurface() {
         return surface;
     }
@@ -52,12 +60,12 @@ public class Appartement {
         this.surface = surface;
     }
 
-    public int getNbrePieces() {
+    public Long getNbrePieces() {
         return nbrePieces;
     }
 
-    public void setNbrePieces(int nbPieces) {
-        this.nbrePieces = nbPieces;
+    public void setNbrePieces(Long nbrePieces) {
+        this.nbrePieces = nbrePieces;
     }
 
     public String getDescription() {
@@ -67,13 +75,4 @@ public class Appartement {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public Batiment getBatiment() {
-        return batiment;
-    }
-
-    public void setBatiment(Batiment batiment) {
-        this.batiment = batiment;
-    }
-
 }
