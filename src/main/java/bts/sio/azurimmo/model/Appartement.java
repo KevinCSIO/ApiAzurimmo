@@ -22,8 +22,8 @@ public class Appartement {
     @Column(name="surface")
     private float surface;
 
-    @Column(name="nbPieces")
-    private int nbPieces;
+    @Column(name="nbrePieces")
+    private int nbrePieces;
 
     @Column(name="description")
     private String description;
@@ -52,12 +52,12 @@ public class Appartement {
         this.surface = surface;
     }
 
-    public int getNbPieces() {
-        return nbPieces;
+    public int getNbrePieces() {
+        return nbrePieces;
     }
 
-    public void setNbPieces(int nbPieces) {
-        this.nbPieces = nbPieces;
+    public void setNbrePieces(int nbPieces) {
+        this.nbrePieces = nbPieces;
     }
 
     public String getDescription() {
