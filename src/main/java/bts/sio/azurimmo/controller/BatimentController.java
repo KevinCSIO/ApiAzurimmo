@@ -35,5 +35,10 @@ public class BatimentController {
         return batimentService.saveBatiment(batiment);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Boolean> deleteBatiment(@PathVariable Long id){
+        return ResponseEntity.ok(batimentService.deleteBatiment(id));
+    }
+
 
 }
