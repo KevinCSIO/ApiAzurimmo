@@ -8,7 +8,7 @@ import lombok.Data;
 @Table(name = "appartement")
 public class Appartement {
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "batiment_id")
     private Batiment batiment;
 
