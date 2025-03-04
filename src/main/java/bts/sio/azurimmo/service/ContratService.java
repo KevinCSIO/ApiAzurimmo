@@ -29,4 +29,8 @@ public class ContratService {
         Optional<Contrat> contrat = contratRepository.findById(id);
         return contrat.orElse(null);
     }
+
+    public List<Contrat> getContratsParAppartement(long id) {
+        return contratRepository.findByAppartement_Id(id);
+    }
 }

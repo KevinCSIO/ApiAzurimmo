@@ -23,6 +23,16 @@ public class Contrat {
     @Column(name="montantLoyer")
     private float montantLoyer;
 
+    @Column(name="montantCharges")
+    private float montantCharges;
+
+    @Column(name="statut")
+    private String statut;
+
+    @ManyToOne
+    @JoinColumn(name = "appartement_id")
+    private Appartement appartement;
+
     public Long getId() {
         return id;
     }
@@ -78,12 +88,6 @@ public class Contrat {
     public void setAssocie(Associe associe) {
         this.associe = associe;
     }*/
-
-    @Column(name="montantCharges")
-    private float montantCharges;
-
-    @Column(name="statut")
-    private String statut;
 
     /*@ManyToOne
     @JoinColumn(name = "associe_id")

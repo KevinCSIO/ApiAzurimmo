@@ -30,4 +30,8 @@ public class ContratController {
         return contratService.getContratById(id);
     }
 
+    @GetMapping("/appartement/{appartementId}")
+    public List<Contrat> getContratsParAppartement(@PathVariable Long appartementId) {
+        return contratService.getContratsParAppartement(appartementId);
+    }
 }
