@@ -1,5 +1,6 @@
 package bts.sio.azurimmo.controller;
 
+import bts.sio.azurimmo.dto.BatimentDto;
 import bts.sio.azurimmo.model.Appartement;
 import bts.sio.azurimmo.model.Batiment;
 import bts.sio.azurimmo.repository.BatimentRepository;
@@ -40,7 +41,12 @@ public class BatimentController {
     }
 
     @PostMapping("/")
-    public Batiment createBatiment(@RequestBody Batiment batiment) {
+    public Batiment createBatiment(@RequestBody BatimentDto batiment) {
+        return batimentService.saveBatiment(batiment);
+    }
+
+    @PutMapping("/{id}")
+    public Batiment updateBatiment(@PathVariable Long id, @RequestBody BatimentDto batiment) {
         return batimentService.saveBatiment(batiment);
     }
 

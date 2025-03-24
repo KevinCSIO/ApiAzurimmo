@@ -1,5 +1,6 @@
 package bts.sio.azurimmo.service;
 
+import bts.sio.azurimmo.dto.BatimentDto;
 import bts.sio.azurimmo.model.Batiment;
 import bts.sio.azurimmo.repository.BatimentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,16 @@ public class BatimentService {
     @Autowired
     private BatimentRepository batimentRepository;
 
-    public Batiment saveBatiment(Batiment batiment) {
+    public Batiment saveBatiment(BatimentDto batiment) {
+        Batiment _batiment;
         if (batiment.getId() == 0) {
-            batiment.setId(null);
+            _batiment = new Batiment();
+        }else{
+            _batiment=batimentRepository.findById(batiment.getId()).get();
         }
-        return batimentRepository.save(batiment);
+        batiment.updateTo(_batiment);
+        Batiment savedBatiment=batimentRepository.save(_batiment);
+        return savedBatiment;
     }
 
     public List<Batiment> getAllBatiments() {
