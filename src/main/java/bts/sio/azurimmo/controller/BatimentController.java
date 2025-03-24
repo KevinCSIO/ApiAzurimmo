@@ -13,7 +13,14 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/batiments")
-@CrossOrigin(origins = {"http://127.0.0.1:3000","http://localhost:3000" })
+@CrossOrigin(origins = {"http://127.0.0.1:3000","http://localhost:3000" }, methods = {
+        RequestMethod.GET,
+        RequestMethod.POST,
+        RequestMethod.DELETE,
+        RequestMethod.PUT,
+        RequestMethod.OPTIONS,
+        RequestMethod.PATCH,
+})
 
 public class BatimentController {
 
