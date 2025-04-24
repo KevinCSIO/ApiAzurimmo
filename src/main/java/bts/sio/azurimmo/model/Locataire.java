@@ -14,15 +14,67 @@ public class Locataire {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="nom")
+    @Column(name = "nom")
     private String nom;
 
-    @Column(name="prenom")
+    @Column(name = "prenom")
     private String prenom;
 
-    @Column(name="dateN")
+    @Column(name = "dateN")
     private LocalDate dateN;
 
-    @Column(name="lieuN")
+    @Column(name = "lieuN")
     private String lieuN;
+
+    @ManyToOne
+    @JoinColumn(name = "contrat_id")
+    private Contrat contrat;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public LocalDate getDateN() {
+        return dateN;
+    }
+
+    public void setDateN(LocalDate dateN) {
+        this.dateN = dateN;
+    }
+
+    public String getLieuN() {
+        return lieuN;
+    }
+
+    public void setLieuN(String lieuN) {
+        this.lieuN = lieuN;
+    }
+
+    public Contrat getContrat() {
+        return contrat;
+    }
+
+    public void setContrat(Contrat contrat) {
+        this.contrat = contrat;
+    }
 }
