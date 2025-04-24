@@ -1,7 +1,7 @@
 package bts.sio.azurimmo.controller;
 
-import bts.sio.azurimmo.model.Locataire;
-import bts.sio.azurimmo.service.LocataireService;
+import bts.sio.azurimmo.model.Garant;
+import bts.sio.azurimmo.service.GarantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,19 +11,20 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/locataires")
-public class LocataireController {
+@RequestMapping("/api/garants")
+public class GarantController {
 
     @Autowired
-    private LocataireService locataireService;
+    private GarantService garantService;
 
     @GetMapping("/")
-    public List<Locataire> getAllLocataires() {
-        return locataireService.getAllLocataires();
+    public List<Garant> getAllGarants() {
+        return garantService.getAllGarants();
     }
 
     @GetMapping("/{id}")
-    public Locataire getLocataireById(@PathVariable Long id) {
-        return locataireService.getLocataireById(id);
+    public Garant getGarantById(@PathVariable Long id) {
+        return garantService.getGarantById(id);
     }
+
 }

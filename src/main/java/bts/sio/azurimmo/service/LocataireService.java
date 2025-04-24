@@ -24,9 +24,4 @@ public class LocataireService {
         Optional<Locataire> locataire = locataireRepository.findById(id);
         return locataire.orElse(null);
     }
-
-    public List<Locataire> getLocatairesParContrat(long id) {
-        return locataireRepository.findByContrat_Id(id);
-    }
-
 }
