@@ -26,10 +26,6 @@ public class Locataire {
     @Column(name = "lieuN")
     private String lieuN;
 
-    @ManyToOne
-    @JoinColumn(name = "contrat_id")
-    private Contrat contrat;
-
     public Long getId() {
         return id;
     }
@@ -69,12 +65,5 @@ public class Locataire {
     public void setLieuN(String lieuN) {
         this.lieuN = lieuN;
     }
-
-    public Contrat getContrat() {
-        return contrat;
-    }
-
-    public void setContrat(Contrat contrat) {
-        this.contrat = contrat;
-    }
+    
 }
