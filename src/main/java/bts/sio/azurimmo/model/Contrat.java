@@ -14,24 +14,28 @@ public class Contrat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="dateEntree")
+    @Column(name = "dateEntree")
     private LocalDate dateEntree;
 
-    @Column(name="dateSortie")
+    @Column(name = "dateSortie")
     private LocalDate dateSortie;
 
-    @Column(name="montantLoyer")
+    @Column(name = "montantLoyer")
     private float montantLoyer;
 
-    @Column(name="montantCharges")
+    @Column(name = "montantCharges")
     private float montantCharges;
 
-    @Column(name="statut")
+    @Column(name = "statut")
     private String statut;
 
     @ManyToOne
     @JoinColumn(name = "appartement_id")
     private Appartement appartement;
+
+    @ManyToOne
+    @JoinColumn(name = "locataire_id")
+    private Locataire locataire;
 
     public Long getId() {
         return id;
@@ -81,7 +85,22 @@ public class Contrat {
         this.statut = statut;
     }
 
-    /*public Associe getAssocie() {
+    public Appartement getAppartement() {
+        return appartement;
+    }
+
+    public void setAppartement(Appartement appartement) {
+        this.appartement = appartement;
+    }
+
+    public Locataire getLocataire() {
+        return locataire;
+    }
+
+    public void setLocataire(Locataire locataire) {
+        this.locataire = locataire;
+    }
+/*public Associe getAssocie() {
         return associe;
     }
 
