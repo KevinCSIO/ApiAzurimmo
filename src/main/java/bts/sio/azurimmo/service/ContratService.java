@@ -1,14 +1,13 @@
 package bts.sio.azurimmo.service;
 
-import java.util.List;
-import java.util.Optional;
-
-import bts.sio.azurimmo.model.Appartement;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import bts.sio.azurimmo.model.Contrat;
 import bts.sio.azurimmo.repository.ContratRepository;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Data
 @Service
@@ -21,13 +20,20 @@ public class ContratService {
         return contratRepository.findByAssocieId(associeId);
     }*/
 
-    public List<Contrat> getAllContrats(){
+    public List<Contrat> getAllContrats() {
         return contratRepository.findAll();
     }
 
     public Contrat getContratById(Long id) {
         Optional<Contrat> contrat = contratRepository.findById(id);
         return contrat.orElse(null);
+    }
+
+    public Contrat saveContrat(Contrat contrat) {
+        if (contrat.getId() != null && contrat.getId() == 0) {
+            contrat.setId(null);
+        }
+        return contratRepository.save(contrat);
     }
 
     public List<Contrat> getContratsParAppartement(long id) {
