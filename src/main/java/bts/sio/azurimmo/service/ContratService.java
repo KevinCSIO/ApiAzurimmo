@@ -1,6 +1,7 @@
 package bts.sio.azurimmo.service;
 
 import bts.sio.azurimmo.model.Contrat;
+import bts.sio.azurimmo.model.Locataire;
 import bts.sio.azurimmo.repository.ContratRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,4 +40,10 @@ public class ContratService {
     public List<Contrat> getContratsParAppartement(long id) {
         return contratRepository.findByAppartement_Id(id);
     }
+
+    public Locataire getLocataireFromContrat(Long contratId) {
+        Optional<Contrat> contrat = contratRepository.findById(contratId);
+        return contrat.map(Contrat::getLocataire).orElse(null);
+    }
+
 }

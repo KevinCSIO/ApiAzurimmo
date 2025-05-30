@@ -1,6 +1,7 @@
 package bts.sio.azurimmo.controller;
 
 import bts.sio.azurimmo.model.Contrat;
+import bts.sio.azurimmo.model.Locataire;
 import bts.sio.azurimmo.service.ContratService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -38,4 +39,10 @@ public class ContratController {
     public List<Contrat> getContratsParAppartement(@PathVariable Long appartementId) {
         return contratService.getContratsParAppartement(appartementId);
     }
+
+    @GetMapping("/{id}/locataire")
+    public Locataire getLocataireFromContrat(@PathVariable Long id) {
+        return contratService.getLocataireFromContrat(id);
+    }
+
 }
