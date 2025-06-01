@@ -1,9 +1,12 @@
 package bts.sio.azurimmo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity
@@ -25,6 +28,10 @@ public class Locataire {
 
     @Column(name = "lieuN")
     private String lieuN;
+
+    @OneToMany(mappedBy = "locataire")
+    @JsonIgnore
+    private List<Contrat> contrats;
 
     public Long getId() {
         return id;
@@ -65,5 +72,12 @@ public class Locataire {
     public void setLieuN(String lieuN) {
         this.lieuN = lieuN;
     }
-    
+
+    public List<Contrat> getContrats() {
+        return contrats;
+    }
+
+    public void setContrats(List<Contrat> contrats) {
+        this.contrats = contrats;
+    }
 }
