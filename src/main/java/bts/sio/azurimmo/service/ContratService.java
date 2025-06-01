@@ -41,9 +41,10 @@ public class ContratService {
         return contratRepository.findByAppartement_Id(id);
     }
 
-    public Locataire getLocataireFromContrat(Long contratId) {
+    public Locataire getLocataireDuContrat(Long contratId) {
         Optional<Contrat> contrat = contratRepository.findById(contratId);
         return contrat.map(Contrat::getLocataire).orElse(null);
     }
+
 
 }

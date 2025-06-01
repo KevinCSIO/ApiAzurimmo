@@ -41,8 +41,9 @@ public class ContratController {
     }
 
     @GetMapping("/{id}/locataire")
-    public Locataire getLocataireFromContrat(@PathVariable Long id) {
-        return contratService.getLocataireFromContrat(id);
+    public Locataire getLocataireParContrat(@PathVariable Long id) {
+        return contratService.getLocataireDuContrat(id);
     }
+
 
 }

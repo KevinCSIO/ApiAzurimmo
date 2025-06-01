@@ -1,5 +1,7 @@
 package bts.sio.azurimmo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -30,10 +32,12 @@ public class Contrat {
     private String statut;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "appartement_id")
     private Appartement appartement;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "locataire_id")
     private Locataire locataire;
 

@@ -1,5 +1,6 @@
 package bts.sio.azurimmo.service;
 
+import bts.sio.azurimmo.model.Contrat;
 import bts.sio.azurimmo.model.Locataire;
 import bts.sio.azurimmo.repository.LocataireRepository;
 import lombok.Data;
@@ -23,5 +24,12 @@ public class LocataireService {
     public Locataire getLocataireById(Long id) {
         Optional<Locataire> locataire = locataireRepository.findById(id);
         return locataire.orElse(null);
+    }
+
+    public Locataire saveLocataire(Locataire locataire) {
+        if (locataire.getId() != null && locataire.getId() == 0) {
+            locataire.setId(null);
+        }
+        return locataireRepository.save(locataire);
     }
 }

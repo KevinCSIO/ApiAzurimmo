@@ -1,5 +1,7 @@
 package bts.sio.azurimmo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -9,6 +11,7 @@ import lombok.Data;
 public class Appartement {
 
     @ManyToOne(cascade = CascadeType.REMOVE)
+    @JsonIgnore
     @JoinColumn(name = "batiment_id")
     private Batiment batiment;
 

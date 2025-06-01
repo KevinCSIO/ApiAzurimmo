@@ -1,9 +1,6 @@
 package bts.sio.azurimmo.model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -28,6 +25,7 @@ public class Batiment {
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
             property="id")
     @JsonIdentityReference(alwaysAsId=true)
+    @JsonIgnore
     private List<Appartement> appartements;
 
     public Long getId() {
